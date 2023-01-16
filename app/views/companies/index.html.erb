@@ -1,22 +1,35 @@
-<h1>Listing companies</h1>
+<div class="d-flex justify-content-between align-item-center m-3">
+	<div></div>
+	<h1>Companies List</h1>
+	<div class="mt-2">
+		<%= link_to '<button type="button">New Company</button>'.html_safe, new_company_path %>
+	</div>
+	
+</div>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
-      <th>Company name</th>
-      <th>Company address</th>
-      <th colspan="3"></th>
+      <th style="width: 5%">ID</th>
+      <th style="width: 20%">Company name</th>
+      <th style="width: 20%">Company address</th>
+      <th style="width: 10%">No. Of Employees</th>
+      <th style="width: 15%">Created At</th>
+      <th style="width: 30%"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @companies.each do |company| %>
       <tr>
+        <td><%= company.id %></td>
         <td><%= company.company_name %></td>
         <td><%= company.company_address %></td>
-        <td><%= link_to 'Show', company %></td>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= company.employees.count %></td>
+        <td><%= company.created_at.strftime("%d %B %Y") %></td>
+        <td><%= link_to '<button type="button">Show</button>'.html_safe, company %>
+        <%= link_to '<button type="button">Edit</button>'.html_safe, edit_company_path(company) %>
+        <%= link_to '<button type="button">Destroy</button>'.html_safe, company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +37,4 @@
 
 <br>
 
-<%= link_to 'New Company', new_company_path %>
+

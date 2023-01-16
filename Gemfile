@@ -16,6 +16,16 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+# 
+gem 'roo', '~> 2.2'
+# for excel data import in rails database user table 
+
+
+gem 'roo-xls'
+
+gem 'active_model_serializers'
+
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

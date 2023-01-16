@@ -1,14 +1,17 @@
 <p id="notice"><%= notice %></p>
-
+<h3>Company Details</h3>
 <p>
-  <strong>Company name:</strong>
-  <%= @company.company_name %>
+  <h6><strong>Company name:</strong>
+  <%= @company.company_name %></h6>
 </p>
 
 <p>
-  <strong>Company address:</strong>
-  <%= @company.company_address %>
+  <h6><strong>Company address:</strong>
+  <%= @company.company_address %></h6>
 </p>
 
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+
+
+<%= link_to '<button type="button">Edit</button>'.html_safe, edit_company_path(@company) %> 
+<%= link_to '<button type="button">Back</button>'.html_safe, companies_path %>
+<%= link_to '<button type="button">Show Employees</button>'.html_safe, company_employees_path(@company) %>

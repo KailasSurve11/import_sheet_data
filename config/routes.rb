@@ -1,13 +1,24 @@
 Rails.application.routes.draw do
-  resources :employees
+  # resources :employees
 
-  resources :companies
+  # resources :companies
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'companies#index'
+
+ #  resources :employees do
+	#     post :import_sheet, on: :collection
+	# end
+
+	resources :companies do
+    resources :employees do
+	    post :import_sheet, on: :collection
+		end    
+  end
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

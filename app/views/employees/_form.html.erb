@@ -1,4 +1,4 @@
-<%= form_for(@employee) do |f| %>
+<%= form_for  [@company, @employee] do |f| %>
   <% if @employee.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
@@ -11,27 +11,34 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field m-2 mt-4">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
+  <div class="field m-2 mt-4">
     <%= f.label :gender %><br>
     <%= f.text_field :gender %>
   </div>
-  <div class="field">
+  <div class="field m-2 mt-4">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
-  <div class="field">
+  <div class="field m-2 mt-4">
     <%= f.label :age %><br>
     <%= f.number_field :age %>
   </div>
-  <div class="field">
+  <div class="field m-2 mt-4">
     <%= f.label :contact_no %><br>
-    <%= f.text_field :contact_no %>
+    <%= f.number_field :contact_no %>
   </div>
-  <div class="actions">
+  <div class="actions m-2 mt-4">
     <%= f.submit %>
   </div>
+<% end %>
+
+<h3 class="m-2 mt-4">Import Employees From Excel Sheet</h3>
+
+<%= form_tag(import_sheet_company_employees_path,  multipart: true, class: 'm-2') do %>
+  <%= file_field_tag 'xml_file',required: true %>
+  <%= submit_tag 'Submit', class: 'btn btn-primary' %>
 <% end %>
